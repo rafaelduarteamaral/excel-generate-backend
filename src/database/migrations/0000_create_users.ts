@@ -6,12 +6,6 @@ export async function up(knex: Knex) {
     table.string('nome').nullable();
     table.string('avatar').nullable();
     table.string('password').nullable();
-    table
-      .integer('id_filial')
-      .unsigned()
-      .index()
-      .references('id')
-      .inTable('filial');
   });
 }
 

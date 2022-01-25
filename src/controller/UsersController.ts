@@ -1,6 +1,6 @@
 import jwt from 'jsonwebtoken';
 import { Request, Response } from 'express';
-import { validationResult } from 'express-validator';
+import { check, validationResult } from 'express-validator';
 import db from '../database/connection';
 
 const secret = 'mysecret';
@@ -42,10 +42,9 @@ export const index = async (req: Request, res: Response) => {
 
 export const create = {
   validations: [
-    // check('nome').isString(),
-    // check('password').isString(),
-    // check('avatar').isString(),
-    // check('filial').isNumeric(),
+    check('nome').isString(),
+    check('password').isString(),
+    check('avatar').isString(),
   ],
   handler: async (req: Request, res: Response) => {
     const schemaErrors = validationResult(req);
@@ -79,10 +78,9 @@ export const create = {
 
 export const update = {
   validations: [
-    // check('nome').isString(),
-    // check('password').isString(),
-    // check('avatar').isString(),
-    // check('filial').isNumeric(),
+    check('nome').isString(),
+    check('password').isString(),
+    check('avatar').isString(),
   ],
   handler: async (req: Request, res: Response) => {
     const { id } = req.params;
@@ -112,19 +110,18 @@ export const update = {
 };
 
 export const logout = async (req: Request, res: Response) => {
-    res.status(200).send({ auth: false, token: null });
-}
+  res.status(200).send({ auth: false, token: null });
+};
 
 export const getUsers = (req: Request, res: Response) => {
-    var token: any = req.headers['authorization'];
+  const token: any = req.headers.authorization;
 
-    jwt.verify(token, secret, function (err: any, decoded: any) {
-      if (err) {
-        return res.status(500).send({ auth: false, message: 'Token inválido.' });
-      }
+  jwt.verify(token, secret, function (err: any, decoded: any) {
+    if (err) {
+      return res.status(500).send({ auth: false, message: 'Token inválido.' });
+    }
 
-     const usuario_id = decoded.id;
-      return usuario_id;
-    });
-}
-
+    const usuario_id = decoded.id;
+    return usuario_id;
+  });
+};

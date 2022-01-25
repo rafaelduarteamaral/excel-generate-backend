@@ -1,0 +1,476 @@
+{
+  "openapi": "3.0.1",
+  "info": {
+    "version": "1.3.0",
+    "title": "Surf Forecast",
+    "description": "Surf Forecast API",
+    "termsOfService": "http://api_url/terms/",
+    "license": {
+      "name": "Apache 2.0",
+      "url": "https://www.apache.org/licenses/LICENSE-2.0.html"
+    }
+  },
+  "servers": [
+    {
+      "url": "http://waldemarnt-com.umbler.net/",
+      "description": "Production Server"
+    },
+    {
+      "url": "http://localhost:3000/",
+      "description": "Local server"
+    }
+  ],
+  "paths": {
+    "/filial": {
+      "tags": [
+        {
+          "name": "Filial",
+          "description": ""
+        }
+      ],
+      "post": {
+        "description": "Criar nova Filial.",
+        "operationId": "createFilial",
+        "parameters": [],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "properties": {
+                  "nome": {
+                    "type": "string",
+                    "example": "Ambiente Solido"
+                  },
+                  "razao_social": {
+                    "type": "string",
+                    "example": "Ambiente Consultoria LTDA"
+                  },
+                  "regiao": {
+                    "type": "string",
+                    "example": "Brasilia"
+                  },
+                  "cnpj": {
+                    "type": "string",
+                    "example": "45464654465465"
+                  },
+                  "regime_tributario": {
+                    "type": "string",
+                    "example": "1"
+                  },
+                  "cnae": {
+                    "type": "string",
+                    "example": "teste"
+                  },
+                  "inscricao_estadual": {
+                    "type": "string",
+                    "example": "111122233"
+                  },
+                  "inscricao_municipal": {
+                    "type": "string",
+                    "example": "1234567"
+                  },
+                  "endereco": {
+                    "type": "string",
+                    "example": "qms 54 casa 12"
+                  },
+                  "complemento": {
+                    "type": "string",
+                    "example": "Subida do fox"
+                  },
+                  "bairro": {
+                    "type": "string",
+                    "example": "setor de manções"
+                  },
+                  "numero": {
+                    "type": "string",
+                    "example": "12"
+                  },
+                  "cep": {
+                    "type": "string",
+                    "example": "73080490"
+                  },
+                  "estado": {
+                    "type": "string",
+                    "example": "DF"
+                  },
+                  "cidade": {
+                    "type": "string",
+                    "example": "SOBRADINHO"
+                  },
+                  "telefone": {
+                    "type": "string",
+                    "example": "61981474690"
+                  },
+                  "sequencia": {
+                    "type": "string",
+                    "example": "123"
+                  },
+                  "fuso_horario": {
+                    "type": "string",
+                    "example": "BRASILIA/DF"
+                  }
+                }
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "201": {
+            "description": "Cotação criada",
+            "content": {
+              "application/json": {
+                "type": "object",
+                "properties": {
+                  "nome": {
+                    "type": "string",
+                    "example": "Rafael Amaral"
+                  },
+                  "valorCotacao": {
+                    "type": "string",
+                    "example": "1.00"
+                  },
+                  "medida": {
+                    "type": "string",
+                    "example": "+"
+                  },
+                  "casasDecimais": {
+                    "type": "string",
+                    "example": "2"
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid parameters",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                },
+                "example": {
+                  "message": "Invalid parameters",
+                  "code": "400",
+                  "error": "Bad Request"
+                }
+              }
+            }
+          }
+        }
+      },
+      "get": {
+        "description": "Buscar cotações.",
+        "operationId": "createCotacao",
+        "parameters": [],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "properties": {
+                }
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "201": {
+            "description": "Buscar cotações",
+            "content": {
+              "application/json": {
+                "type": "object",
+                "properties": {}
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid parameters",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                },
+                "example": {
+                  "message": "Invalid parameters",
+                  "code": "400",
+                  "error": "Bad Request"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/cotacao": {
+      "tags": [
+        {
+          "name": "Cotação",
+          "description": ""
+        }
+      ],
+      "post": {
+        "description": "Criar nova cotação da moeda.",
+        "operationId": "createCotacao",
+        "parameters": [],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "properties": {
+                  "nome": {
+                    "type": "string",
+                    "example": "Rafael Amaral"
+                  },
+                  "valorCotacao": {
+                    "type": "string",
+                    "example": "1.00"
+                  },
+                  "medida": {
+                    "type": "string",
+                    "example": "+"
+                  },
+                  "casasDecimais": {
+                    "type": "string",
+                    "example": "2"
+                  }
+                }
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "201": {
+            "description": "Cotação criada",
+            "content": {
+              "application/json": {
+                "type": "object",
+                "properties": {
+                  "nome": {
+                    "type": "string",
+                    "example": "Rafael Amaral"
+                  },
+                  "valorCotacao": {
+                    "type": "string",
+                    "example": "1.00"
+                  },
+                  "medida": {
+                    "type": "string",
+                    "example": "+"
+                  },
+                  "casasDecimais": {
+                    "type": "string",
+                    "example": "2"
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid parameters",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                },
+                "example": {
+                  "message": "Invalid parameters",
+                  "code": "400",
+                  "error": "Bad Request"
+                }
+              }
+            }
+          }
+        }
+      },
+      "get": {
+        "description": "Buscar cotações.",
+        "operationId": "createCotacao",
+        "parameters": [],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "properties": {
+                }
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "201": {
+            "description": "Buscar cotações",
+            "content": {
+              "application/json": {
+                "type": "object",
+                "properties": {}
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid parameters",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                },
+                "example": {
+                  "message": "Invalid parameters",
+                  "code": "400",
+                  "error": "Bad Request"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/cotacao/:id": {
+      "put": {
+        "description": "Atualização nova cotação da moeda.",
+        "operationId": "updateCotacao",
+        "parameters": [],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "properties": {
+                  "nome": {
+                    "type": "string",
+                    "example": "Rafael Amaral"
+                  },
+                  "valorCotacao": {
+                    "type": "string",
+                    "example": "1.00"
+                  },
+                  "medida": {
+                    "type": "string",
+                    "example": "+"
+                  },
+                  "casasDecimais": {
+                    "type": "string",
+                    "example": "2"
+                  }
+                }
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "201": {
+            "description": "Cotação atualizada",
+            "content": {
+              "application/json": {
+                "type": "object",
+                "properties": {
+                  "nome": {
+                    "type": "string",
+                    "example": "Rafael Amaral"
+                  },
+                  "valorCotacao": {
+                    "type": "string",
+                    "example": "1.00"
+                  },
+                  "medida": {
+                    "type": "string",
+                    "example": "+"
+                  },
+                  "casasDecimais": {
+                    "type": "string",
+                    "example": "2"
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid parameters",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                },
+                "example": {
+                  "message": "Invalid parameters",
+                  "code": "400",
+                  "error": "Bad Request"
+                }
+              }
+            }
+          }
+        }
+      },
+      "delete": {
+        "description": "Atualização nova cotação da moeda.",
+        "operationId": "updateCotacao",
+        "parameters": [],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "properties": {
+                }
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "201": {
+            "description": "Deletar cotação",
+            "content": {
+              "application/json": {
+                "type": "object",
+                "properties": {
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid parameters",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                },
+                "example": {
+                  "message": "Invalid parameters",
+                  "code": "400",
+                  "error": "Bad Request"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "Error": {
+        "type": "object",
+        "properties": {
+          "message": {
+            "type": "string"
+          },
+          "code": {
+            "type": "number"
+          },
+          "error": {
+            "type": "string"
+          },
+          "description": {
+            "type": "string"
+          },
+          "documentation": {
+            "type": "string"
+          }
+        }
+      }
+    }
+  }
+}
+

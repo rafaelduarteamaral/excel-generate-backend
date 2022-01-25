@@ -1,0 +1,638 @@
+{
+	"info": {
+		"_postman_id": "d065d9b4-4653-404e-948a-bd315b078af5",
+		"name": "Gestao 2",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "COTAÇÃO",
+			"item": [
+				{
+					"name": "New Request",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{URL}/cotacao",
+							"host": [
+								"{URL}"
+							],
+							"path": [
+								"cotacao"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "FILIAL",
+			"item": [
+				{
+					"name": "FILIAL",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"nome\": \"Ambiente Solido\",\n    \"razao_social\": \"Ambiente Consultoria\",\n    \"regiao\": \"Brasilia\",\n    \"cnpj\": \"44654546545645\",\n    \"regime_tributario\": \"1\",\n    \"cnae\": \"teste\",\n    \"inscricao_estadual\": \"111122233\",\n    \"inscricao_municipal\": \"1234567\",\n    \"endereco\": \"qms 54 casa 12\",\n    \"complemento\": \"Subida do fox\",\n    \"bairro\": \"setor de manções\",\n    \"numero\": \"12\",\n    \"cep\": \"73080490\",\n    \"estado\": \"DF\",\n    \"cidade\": \"BRASILIA\",\n    \"telefone\": \"61981474690\",\n    \"sequencia\": \"123\",\n    \"fuso_horario\": \"BRASILIA/DF\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{URL}}/filial",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"filial"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "FILIAL",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"nome\": \"Ambiente Solido\",\n    \"razao_social\": \"Ambiente Consultoria\",\n    \"regiao\": \"Brasilia\",\n    \"cnpj\": \"44654546545645\",\n    \"regime_tributario\": \"1\",\n    \"cnae\": \"teste\",\n    \"inscricao_estadual\": \"111122233\",\n    \"inscricao_municipal\": \"1234567\",\n    \"endereco\": \"qms 54 casa 12\",\n    \"complemento\": \"Subida do fox\",\n    \"bairro\": \"setor de manções\",\n    \"numero\": \"12\",\n    \"cep\": \"73080490\",\n    \"estado\": \"DF\",\n    \"cidade\": \"BRASILIA\",\n    \"telefone\": \"61981474690\",\n    \"sequencia\": \"123\",\n    \"fuso_horario\": \"BRASILIA/DF\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{URL}}/filial",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"filial"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "FILIAL/:id",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"nome\": \"Ambiente Solido\",\n    \"razao_social\": \"Ambiente Consultoria\",\n    \"regiao\": \"Brasilia\",\n    \"cnpj\": \"44654546545645\",\n    \"regime_tributario\": \"1\",\n    \"cnae\": \"teste\",\n    \"inscricao_estadual\": \"111122233\",\n    \"inscricao_municipal\": \"1234567\",\n    \"endereco\": \"qms 54 casa 12\",\n    \"complemento\": \"Subida do fox\",\n    \"bairro\": \"setor de manções\",\n    \"numero\": \"12\",\n    \"cep\": \"73080490\",\n    \"estado\": \"DF\",\n    \"cidade\": \"BRASILIA\",\n    \"telefone\": \"61981474690\",\n    \"sequencia\": \"123\",\n    \"fuso_horario\": \"BRASILIA/DF\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{URL}}/filial/1",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"filial",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "FILIAL/:id",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"nome\": \"Ambiente Solido\",\n    \"razao_social\": \"Ambiente Consultoria\",\n    \"regiao\": \"Brasilia\",\n    \"cnpj\": \"44654546545645\",\n    \"regime_tributario\": \"1\",\n    \"cnae\": \"teste\",\n    \"inscricao_estadual\": \"111122233\",\n    \"inscricao_municipal\": \"1234567\",\n    \"endereco\": \"qms 54 casa 12\",\n    \"complemento\": \"Subida do fox\",\n    \"bairro\": \"setor de manções\",\n    \"numero\": \"12\",\n    \"cep\": \"73080490\",\n    \"estado\": \"DF\",\n    \"cidade\": \"BRASILIA\",\n    \"telefone\": \"61981474690\",\n    \"sequencia\": \"123\",\n    \"fuso_horario\": \"BRASILIA/DF\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{URL}}/filial",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"filial"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "COTAÇÃO",
+			"item": [
+				{
+					"name": "COTACAO",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"nome\": \"Ambiente Solido\",\n    \"valor\": \"12\",\n    \"medida\": \"+\",\n    \"casas_decimais\": 2,\n    \"id_filial\": 1\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{URL}}/cotacao",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"cotacao"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "COTACAO",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"nome\": \"Ambiente Solido\",\n    \"razao_social\": \"Ambiente Consultoria\",\n    \"regiao\": \"Brasilia\",\n    \"cnpj\": \"44654546545645\",\n    \"regime_tributario\": \"1\",\n    \"cnae\": \"teste\",\n    \"inscricao_estadual\": \"111122233\",\n    \"inscricao_municipal\": \"1234567\",\n    \"endereco\": \"qms 54 casa 12\",\n    \"complemento\": \"Subida do fox\",\n    \"bairro\": \"setor de manções\",\n    \"numero\": \"12\",\n    \"cep\": \"73080490\",\n    \"estado\": \"DF\",\n    \"cidade\": \"BRASILIA\",\n    \"telefone\": \"61981474690\",\n    \"sequencia\": \"123\",\n    \"fuso_horario\": \"BRASILIA/DF\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{URL}}/cotacao",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"cotacao"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "COTACAO/:id",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"nome\": \"Ambiente Solido\",\n    \"razao_social\": \"Ambiente Consultoria\",\n    \"regiao\": \"Brasilia\",\n    \"cnpj\": \"44654546545645\",\n    \"regime_tributario\": \"1\",\n    \"cnae\": \"teste\",\n    \"inscricao_estadual\": \"111122233\",\n    \"inscricao_municipal\": \"1234567\",\n    \"endereco\": \"qms 54 casa 12\",\n    \"complemento\": \"Subida do fox\",\n    \"bairro\": \"setor de manções\",\n    \"numero\": \"12\",\n    \"cep\": \"73080490\",\n    \"estado\": \"DF\",\n    \"cidade\": \"BRASILIA\",\n    \"telefone\": \"61981474690\",\n    \"sequencia\": \"123\",\n    \"fuso_horario\": \"BRASILIA/DF\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{URL}}/cotacao",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"cotacao"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "COTACAO/:id",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"nome\": \"Ambiente Solido\",\n    \"valor\": \"1.23\",\n    \"medida\": \"+\",\n    \"casas_decimais\": \"2\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{URL}}/cotacao/1",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"cotacao",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "AREA",
+			"item": [
+				{
+					"name": "COTACAO",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"nome\": \"Ambiente Solido\",\n    \"filial\": \"1\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{URL}}/area",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"area"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "COTACAO",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"nome\": \"Ambiente Solido\",\n    \"razao_social\": \"Ambiente Consultoria\",\n    \"regiao\": \"Brasilia\",\n    \"cnpj\": \"44654546545645\",\n    \"regime_tributario\": \"1\",\n    \"cnae\": \"teste\",\n    \"inscricao_estadual\": \"111122233\",\n    \"inscricao_municipal\": \"1234567\",\n    \"endereco\": \"qms 54 casa 12\",\n    \"complemento\": \"Subida do fox\",\n    \"bairro\": \"setor de manções\",\n    \"numero\": \"12\",\n    \"cep\": \"73080490\",\n    \"estado\": \"DF\",\n    \"cidade\": \"BRASILIA\",\n    \"telefone\": \"61981474690\",\n    \"sequencia\": \"123\",\n    \"fuso_horario\": \"BRASILIA/DF\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{URL}}/filial",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"filial"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "COTACAO/:id",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"nome\": \"Ambiente Solido\",\n    \"razao_social\": \"Ambiente Consultoria\",\n    \"regiao\": \"Brasilia\",\n    \"cnpj\": \"44654546545645\",\n    \"regime_tributario\": \"1\",\n    \"cnae\": \"teste\",\n    \"inscricao_estadual\": \"111122233\",\n    \"inscricao_municipal\": \"1234567\",\n    \"endereco\": \"qms 54 casa 12\",\n    \"complemento\": \"Subida do fox\",\n    \"bairro\": \"setor de manções\",\n    \"numero\": \"12\",\n    \"cep\": \"73080490\",\n    \"estado\": \"DF\",\n    \"cidade\": \"BRASILIA\",\n    \"telefone\": \"61981474690\",\n    \"sequencia\": \"123\",\n    \"fuso_horario\": \"BRASILIA/DF\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{URL}}/filial",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"filial"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "area/:id",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"nomea\": \"Ambiente Solido\",\n    \"valor\": \"1.23\",\n    \"medida\": \"+\",\n    \"casas_decimais\": \"2\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{URL}}/area/1",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"area",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "TIPO SERVICO",
+			"item": [
+				{
+					"name": "TIPO SERVICO",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"nome\": \"Ambiente Solido\",\n    \"filial\": \"1\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{URL}}/area",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"area"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "TIPO SERIVOC",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"nome\": \"Ambiente Solido\",\n    \"razao_social\": \"Ambiente Consultoria\",\n    \"regiao\": \"Brasilia\",\n    \"cnpj\": \"44654546545645\",\n    \"regime_tributario\": \"1\",\n    \"cnae\": \"teste\",\n    \"inscricao_estadual\": \"111122233\",\n    \"inscricao_municipal\": \"1234567\",\n    \"endereco\": \"qms 54 casa 12\",\n    \"complemento\": \"Subida do fox\",\n    \"bairro\": \"setor de manções\",\n    \"numero\": \"12\",\n    \"cep\": \"73080490\",\n    \"estado\": \"DF\",\n    \"cidade\": \"BRASILIA\",\n    \"telefone\": \"61981474690\",\n    \"sequencia\": \"123\",\n    \"fuso_horario\": \"BRASILIA/DF\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{URL}}/filial",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"filial"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "TIPO SERIVOC/:id",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"nome\": \"Ambiente Solido\",\n    \"razao_social\": \"Ambiente Consultoria\",\n    \"regiao\": \"Brasilia\",\n    \"cnpj\": \"44654546545645\",\n    \"regime_tributario\": \"1\",\n    \"cnae\": \"teste\",\n    \"inscricao_estadual\": \"111122233\",\n    \"inscricao_municipal\": \"1234567\",\n    \"endereco\": \"qms 54 casa 12\",\n    \"complemento\": \"Subida do fox\",\n    \"bairro\": \"setor de manções\",\n    \"numero\": \"12\",\n    \"cep\": \"73080490\",\n    \"estado\": \"DF\",\n    \"cidade\": \"BRASILIA\",\n    \"telefone\": \"61981474690\",\n    \"sequencia\": \"123\",\n    \"fuso_horario\": \"BRASILIA/DF\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{URL}}/filial",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"filial"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "TIPO SERVICO/:id",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"nomea\": \"Ambiente Solido\",\n    \"valor\": \"1.23\",\n    \"medida\": \"+\",\n    \"casas_decimais\": \"2\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{URL}}/area/1",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"area",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "PESSOAS",
+			"item": [
+				{
+					"name": "PESSOAS",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"nome\": \"Ambiente Solido\",\n    \"razao_social\": \"Ambiente Consultoria\",\n    \"regiao\": \"Brasilia\",\n    \"cnpj\": \"44654546545645\",\n    \"regime_tributario\": \"1\",\n    \"cnae\": \"teste\",\n    \"inscricao_estadual\": \"111122233\",\n    \"inscricao_municipal\": \"1234567\",\n    \"endereco\": \"qms 54 casa 12\",\n    \"complemento\": \"Subida do fox\",\n    \"bairro\": \"setor de manções\",\n    \"numero\": \"12\",\n    \"cep\": \"73080490\",\n    \"estado\": \"DF\",\n    \"cidade\": \"BRASILIA\",\n    \"telefone\": \"61981474690\",\n    \"sequencia\": \"123\",\n    \"fuso_horario\": \"BRASILIA/DF\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{URL}}/pessoa",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"pessoa"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "PESSOAS",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"nome\": \"Ambiente Solido\",\n    \"razao_social\": \"Ambiente Consultoria\",\n    \"regiao\": \"Brasilia\",\n    \"cnpj\": \"44654546545645\",\n    \"regime_tributario\": \"1\",\n    \"cnae\": \"teste\",\n    \"inscricao_estadual\": \"111122233\",\n    \"inscricao_municipal\": \"1234567\",\n    \"endereco\": \"qms 54 casa 12\",\n    \"complemento\": \"Subida do fox\",\n    \"bairro\": \"setor de manções\",\n    \"numero\": \"12\",\n    \"cep\": \"73080490\",\n    \"estado\": \"DF\",\n    \"cidade\": \"BRASILIA\",\n    \"telefone\": \"61981474690\",\n    \"sequencia\": \"123\",\n    \"fuso_horario\": \"BRASILIA/DF\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{URL}}/pessoa",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"pessoa"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "PESSOAS/:id",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"nome\": \"Ambiente Solido\",\n    \"razao_social\": \"Ambiente Consultoria\",\n    \"regiao\": \"Brasilia\",\n    \"cnpj\": \"44654546545645\",\n    \"regime_tributario\": \"1\",\n    \"cnae\": \"teste\",\n    \"inscricao_estadual\": \"111122233\",\n    \"inscricao_municipal\": \"1234567\",\n    \"endereco\": \"qms 54 casa 12\",\n    \"complemento\": \"Subida do fox\",\n    \"bairro\": \"setor de manções\",\n    \"numero\": \"12\",\n    \"cep\": \"73080490\",\n    \"estado\": \"DF\",\n    \"cidade\": \"BRASILIA\",\n    \"telefone\": \"61981474690\",\n    \"sequencia\": \"123\",\n    \"fuso_horario\": \"BRASILIA/DF\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{URL}}/pessoa/1",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"pessoa",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "PESSOAS/:id",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"nome\": \"Ambiente Solido\",\n    \"valor\": \"1.23\",\n    \"medida\": \"+\",\n    \"casas_decimais\": \"2\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{URL}}/pessoa/1",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"pessoa",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"value": "",
+			"disabled": true
+		}
+	]
+}

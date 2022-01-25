@@ -1,0 +1,8 @@
+version: ""
+
+services:
+    app:
+      build: .
+      ports:
+        - "3333:3333"
+      command: node start

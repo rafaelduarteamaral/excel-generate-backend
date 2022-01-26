@@ -32,6 +32,7 @@ export const create = {
     check('entrega').isString(),
     check('obeservacao').isString(),
     check('prazoEntrega').isString(),
+    check('idUsuario').isString(),
   ],
   handler: async (req: Request, res: Response) => {
     // check schema validations
@@ -41,16 +42,45 @@ export const create = {
       return res.status(403).send(schemaErrors.array());
     }
 
-    const { nome, codigo, descricao, id_filial } = req.body;
+    const {
+      cliente,
+      anoVeiculo,
+      origemVeiculo,
+      destinoVeiculo,
+      telefoneCelular,
+      dddCelular,
+      coletaVeiculo,
+      enderecoColetaVeiculo,
+      enderecoEntregaVeiculo,
+      obeservacao,
+      valorTotalVeiculo,
+      orcamentoServico,
+      coleta,
+      entrega,
+      prazoEntrega,
+      idUsuario,
+    } = req.body;
 
     const trx = await db.transaction();
 
     try {
       const insertedproposta = await trx('proposta').insert({
-        nome,
-        codigo,
-        descricao,
-        id_filial,
+        cliente,
+        anoVeiculo,
+        origemVeiculo,
+        destinoVeiculo,
+        telefoneCelular,
+        dddCelular,
+        coletaVeiculo,
+        enderecoColetaVeiculo,
+        enderecoEntregaVeiculo,
+        obeservacao,
+        valorTotalVeiculo,
+        orcamentoServico,
+        coleta,
+        entrega,
+        prazoEntrega,
+        idUsuario,
       });
 
       await trx.commit();
@@ -84,6 +114,7 @@ export const update = {
     check('entrega').isString(),
     check('obeservacao').isString(),
     check('prazoEntrega').isString(),
+    check('idUsuario').isString(),
   ],
   handler: async (req: Request, res: Response) => {
     // check schema validations
@@ -95,16 +126,45 @@ export const update = {
 
     const { id } = req.params;
 
-    const { nome, codigo, descricao, id_filial } = req.body;
+    const {
+      cliente,
+      anoVeiculo,
+      origemVeiculo,
+      destinoVeiculo,
+      telefoneCelular,
+      dddCelular,
+      coletaVeiculo,
+      enderecoColetaVeiculo,
+      enderecoEntregaVeiculo,
+      obeservacao,
+      valorTotalVeiculo,
+      orcamentoServico,
+      coleta,
+      entrega,
+      prazoEntrega,
+      idUsuario,
+    } = req.body;
 
     const trx = await db.transaction();
 
     try {
       const updateNcm = await trx('proposta').where('id', id).update({
-        nome,
-        codigo,
-        descricao,
-        id_filial,
+        cliente,
+        anoVeiculo,
+        origemVeiculo,
+        destinoVeiculo,
+        telefoneCelular,
+        dddCelular,
+        coletaVeiculo,
+        enderecoColetaVeiculo,
+        enderecoEntregaVeiculo,
+        obeservacao,
+        valorTotalVeiculo,
+        orcamentoServico,
+        coleta,
+        entrega,
+        prazoEntrega,
+        idUsuario,
       });
 
       await trx.commit();

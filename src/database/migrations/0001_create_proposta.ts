@@ -17,9 +17,14 @@ export async function up(knex: Knex) {
     table.string('orcamentoServico').nullable();
     table.string('coleta').nullable();
     table.string('entrega').nullable();
-    table.string('obeservacao').nullable();
     table.string('prazoEntrega').nullable();
     table.timestamp('timestamp').defaultTo(knex.fn.now());
+    table
+      .integer('idUsuario')
+      .unsigned()
+      .index()
+      .references('id')
+      .inTable('ususario');
   });
 }
 

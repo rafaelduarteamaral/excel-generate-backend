@@ -9,7 +9,6 @@ export async function up(knex: Knex) {
     table.string('destinoVeiculo').nullable();
     table.string('telefoneCelular').nullable();
     table.string('dddCelular').nullable();
-    table.string('coletaVeiculo').nullable();
     table.string('enderecoColetaVeiculo').nullable();
     table.string('enderecoEntregaVeiculo').nullable();
     table.string('obeservacao').nullable();

@@ -6,10 +6,11 @@ import db from '../database/connection';
 const secret = 'mysecret';
 
 export const login = async (req: Request, res: Response) => {
+  console.log(req.body);
   try {
     const usuarios = await db('usuarios')
       .select('*')
-      .where({ nome: req.body.usuario, password: req.body.password });
+      .where({ email: req.body.email, password: req.body.password });
     if (usuarios.length <= 0) {
       return res.status(401).send('Login invalido');
     }

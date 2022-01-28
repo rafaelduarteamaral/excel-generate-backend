@@ -8,7 +8,7 @@ import apiSchema from '../../api-schema.json';
  */
 
 import * as usersController from '../../controller/UsersController';
-
+import * as PropostaController from '../../controller/PropostaController';
 
 import Mail from '../../services/mail';
 
@@ -37,4 +37,12 @@ routes.put(
   usersController.update.handler,
 );
 
+routes.get('/propostas', PropostaController.index);
+routes.get('/propostas/:id', PropostaController.index);
+
+routes.post(
+  '/propostas',
+  PropostaController.create.validations,
+  PropostaController.create.handler,
+);
 export default routes;

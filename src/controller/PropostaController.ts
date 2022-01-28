@@ -1,5 +1,6 @@
 import { Request, Response } from 'express';
 import { check, validationResult } from 'express-validator/check';
+import { Workbook } from 'exceljs';
 import db from '../database/connection';
 
 export const index = async (req: Request, res: Response) => {
@@ -21,18 +22,12 @@ export const create = {
     check('origemVeiculo').isString(),
     check('destinoVeiculo').isString(),
     check('telefoneCelular').isString(),
-    check('dddCelular').isString(),
-    check('coletaVeiculo').isString(),
     check('enderecoColetaVeiculo').isString(),
     check('enderecoEntregaVeiculo').isString(),
     check('obeservacao').isString(),
-    check('valorTotalVeiculo').isString(),
     check('orcamentoServico').isString(),
-    check('coleta').isString(),
-    check('entrega').isString(),
     check('obeservacao').isString(),
     check('prazoEntrega').isString(),
-    check('idUsuario').isString(),
   ],
   handler: async (req: Request, res: Response) => {
     // check schema validations
@@ -48,8 +43,6 @@ export const create = {
       origemVeiculo,
       destinoVeiculo,
       telefoneCelular,
-      dddCelular,
-      coletaVeiculo,
       enderecoColetaVeiculo,
       enderecoEntregaVeiculo,
       obeservacao,
@@ -58,7 +51,6 @@ export const create = {
       coleta,
       entrega,
       prazoEntrega,
-      idUsuario,
     } = req.body;
 
     const trx = await db.transaction();
@@ -70,8 +62,6 @@ export const create = {
         origemVeiculo,
         destinoVeiculo,
         telefoneCelular,
-        dddCelular,
-        coletaVeiculo,
         enderecoColetaVeiculo,
         enderecoEntregaVeiculo,
         obeservacao,
@@ -80,7 +70,7 @@ export const create = {
         coleta,
         entrega,
         prazoEntrega,
-        idUsuario,
+        idUsuario: 1,
       });
 
       await trx.commit();
@@ -103,18 +93,12 @@ export const update = {
     check('origemVeiculo').isString(),
     check('destinoVeiculo').isString(),
     check('telefoneCelular').isString(),
-    check('dddCelular').isString(),
-    check('coletaVeiculo').isString(),
     check('enderecoColetaVeiculo').isString(),
     check('enderecoEntregaVeiculo').isString(),
     check('obeservacao').isString(),
-    check('valorTotalVeiculo').isString(),
     check('orcamentoServico').isString(),
-    check('coleta').isString(),
-    check('entrega').isString(),
     check('obeservacao').isString(),
     check('prazoEntrega').isString(),
-    check('idUsuario').isString(),
   ],
   handler: async (req: Request, res: Response) => {
     // check schema validations
@@ -132,8 +116,6 @@ export const update = {
       origemVeiculo,
       destinoVeiculo,
       telefoneCelular,
-      dddCelular,
-      coletaVeiculo,
       enderecoColetaVeiculo,
       enderecoEntregaVeiculo,
       obeservacao,
@@ -142,7 +124,6 @@ export const update = {
       coleta,
       entrega,
       prazoEntrega,
-      idUsuario,
     } = req.body;
 
     const trx = await db.transaction();
@@ -154,8 +135,6 @@ export const update = {
         origemVeiculo,
         destinoVeiculo,
         telefoneCelular,
-        dddCelular,
-        coletaVeiculo,
         enderecoColetaVeiculo,
         enderecoEntregaVeiculo,
         obeservacao,
@@ -164,7 +143,7 @@ export const update = {
         coleta,
         entrega,
         prazoEntrega,
-        idUsuario,
+        idUsuario: 1,
       });
 
       await trx.commit();
@@ -182,5 +161,44 @@ export const update = {
 
 export const delete_value = async (req: Request, res: Response) => {
   await db('proposta').where({ id: req.params.id }).del();
+  return res.status(204).send();
+};
+
+export const gerarExel = async (req: Request, res: Response) => {
+  const workbook = new Workbook();
+  const worksheet = workbook.addWorksheet('My Sheet');
+
+  worksheet.columns = [
+    { header: 'cliente', key: 'cliente', width: 30 },
+    { header: 'anoVeiculo', key: 'anoVeiculo', width: 30 },
+    { header: 'origemVeiculo', key: 'origemVeiculo', width: 30 },
+    { header: 'destinoVeiculo', key: 'destinoVeiculo', width: 30 },
+    { header: 'telefoneCelular', key: 'telefoneCelular', width: 30 },
+    {
+      header: 'enderecoColetaVeiculo',
+      key: 'enderecoColetaVeiculo',
+      width: 30,
+    },
+    {
+      header: 'enderecoEntregaVeiculo',
+      key: 'enderecoEntregaVeiculo',
+      width: 30,
+    },
+    { header: 'obeservacao', key: 'obeservacao', width: 30 },
+    { header: 'valorTotalVeiculo', key: 'valorTotalVeiculo', width: 30 },
+    { header: 'orcamentoServico', key: 'orcamentoServico', width: 30 },
+    { header: 'coleta', key: 'coleta', width: 30 },
+    { header: 'entrega', key: 'entrega', width: 30 },
+    { header: 'obeservacao', key: 'obeservacao', width: 30 },
+    { header: 'prazoEntrega', key: 'prazoEntrega', width: 30 },
+    { header: 'idUsuario', key: 'idUsuario', width: 30 },
+  ];
+
+  worksheet.addRow({ id: 1, name: 'John Doe', dob: new Date(1970, 1, 1) });
+
+  // save under export.xlsx
+  await workbook.xlsx.writeFile('export.xlsx');
+
+  console.log('File is written');
   return res.status(204).send();
 };

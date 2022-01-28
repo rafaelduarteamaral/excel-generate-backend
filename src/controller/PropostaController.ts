@@ -9,7 +9,10 @@ export const index = async (req: Request, res: Response) => {
   if (req.params.id) {
     proposta = await db('proposta').select('*').where({ id: req.params.id });
   } else {
-    proposta = await db('proposta').select('*').where(req.query);
+    proposta = await db('proposta')
+      .select('proposta.*', 'usuarios.nome as nomeUsuario')
+      .leftOuterJoin('usuarios', 'proposta.idUsuario', 'usuarios.id')
+      .where(req.query);
   }
 
   return res.status(200).json(proposta);
@@ -28,6 +31,9 @@ export const create = {
     check('orcamentoServico').isString(),
     check('obeservacao').isString(),
     check('prazoEntrega').isString(),
+    check('corVeiculo').isString(),
+    check('modeloVeiculo').isString(),
+    check('idUsuario').isString(),
   ],
   handler: async (req: Request, res: Response) => {
     // check schema validations
@@ -51,6 +57,9 @@ export const create = {
       coleta,
       entrega,
       prazoEntrega,
+      corVeiculo,
+      modeloVeiculo,
+      idUsuario,
     } = req.body;
 
     const trx = await db.transaction();
@@ -70,7 +79,9 @@ export const create = {
         coleta,
         entrega,
         prazoEntrega,
-        idUsuario: 1,
+        idUsuario,
+        corVeiculo,
+        modeloVeiculo,
       });
 
       await trx.commit();
@@ -99,6 +110,9 @@ export const update = {
     check('orcamentoServico').isString(),
     check('obeservacao').isString(),
     check('prazoEntrega').isString(),
+    check('idUsuario').isString(),
+    check('corVeiculo').isString(),
+    check('modeloVeiculo').isString(),
   ],
   handler: async (req: Request, res: Response) => {
     // check schema validations
@@ -124,6 +138,9 @@ export const update = {
       coleta,
       entrega,
       prazoEntrega,
+      idUsuario,
+      corVeiculo,
+      modeloVeiculo,
     } = req.body;
 
     const trx = await db.transaction();
@@ -143,7 +160,9 @@ export const update = {
         coleta,
         entrega,
         prazoEntrega,
-        idUsuario: 1,
+        idUsuario,
+        corVeiculo,
+        modeloVeiculo,
       });
 
       await trx.commit();
@@ -167,7 +186,6 @@ export const delete_value = async (req: Request, res: Response) => {
 export const gerarExel = async (req: Request, res: Response) => {
   const workbook = new Workbook();
   const worksheet = workbook.addWorksheet('My Sheet');
-
   worksheet.columns = [
     { header: 'cliente', key: 'cliente', width: 30 },
     { header: 'anoVeiculo', key: 'anoVeiculo', width: 30 },
@@ -193,12 +211,8 @@ export const gerarExel = async (req: Request, res: Response) => {
     { header: 'prazoEntrega', key: 'prazoEntrega', width: 30 },
     { header: 'idUsuario', key: 'idUsuario', width: 30 },
   ];
-
   worksheet.addRow({ id: 1, name: 'John Doe', dob: new Date(1970, 1, 1) });
-
   // save under export.xlsx
   await workbook.xlsx.writeFile('export.xlsx');
-
-  console.log('File is written');
   return res.status(204).send();
 };

@@ -17,6 +17,8 @@ export async function up(knex: Knex) {
     table.string('coleta').nullable();
     table.string('entrega').nullable();
     table.string('prazoEntrega').nullable();
+    table.string('corVeiculo').nullable();
+    table.string('modeloVeiculo').nullable();
     table.timestamp('timestamp').defaultTo(knex.fn.now());
     table
       .integer('idUsuario')

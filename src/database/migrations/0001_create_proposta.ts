@@ -4,6 +4,7 @@ export async function up(knex: Knex) {
   return knex.schema.createTable('proposta', (table: Knex.TableBuilder) => {
     table.increments('id').primary();
     table.string('cliente').nullable();
+    table.string('emailCliente').nullable();
     table.string('anoVeiculo').nullable();
     table.string('origemVeiculo').nullable();
     table.string('destinoVeiculo').nullable();
@@ -14,11 +15,13 @@ export async function up(knex: Knex) {
     table.string('obeservacao').nullable();
     table.string('valorTotalVeiculo').nullable();
     table.string('orcamentoServico').nullable();
+    table.string('valorTransporte').nullable();
+    table.string('valorColeta').nullable();
     table.string('coleta').nullable();
     table.string('entrega').nullable();
-    table.string('prazoEntrega').nullable();
     table.string('corVeiculo').nullable();
     table.string('modeloVeiculo').nullable();
+    table.string('diasUteis').nullable();
     table.timestamp('timestamp').defaultTo(knex.fn.now());
     table
       .integer('idUsuario')

@@ -21,6 +21,7 @@ export const index = async (req: Request, res: Response) => {
 export const create = {
   validations: [
     check('cliente').isString(),
+    check('emailCliente').isString(),
     check('anoVeiculo').isString(),
     check('origemVeiculo').isString(),
     check('destinoVeiculo').isString(),
@@ -30,10 +31,9 @@ export const create = {
     check('obeservacao').isString(),
     check('orcamentoServico').isString(),
     check('obeservacao').isString(),
-    check('prazoEntrega').isString(),
     check('corVeiculo').isString(),
     check('modeloVeiculo').isString(),
-    check('idUsuario').isString(),
+    check('diasUteis').isString(),
   ],
   handler: async (req: Request, res: Response) => {
     // check schema validations
@@ -45,6 +45,7 @@ export const create = {
 
     const {
       cliente,
+      emailCliente,
       anoVeiculo,
       origemVeiculo,
       destinoVeiculo,
@@ -56,10 +57,12 @@ export const create = {
       orcamentoServico,
       coleta,
       entrega,
-      prazoEntrega,
       corVeiculo,
       modeloVeiculo,
       idUsuario,
+      valorTransporte,
+      valorColeta,
+      diasUteis,
     } = req.body;
 
     const trx = await db.transaction();
@@ -67,6 +70,7 @@ export const create = {
     try {
       const insertedproposta = await trx('proposta').insert({
         cliente,
+        emailCliente,
         anoVeiculo,
         origemVeiculo,
         destinoVeiculo,
@@ -78,10 +82,12 @@ export const create = {
         orcamentoServico,
         coleta,
         entrega,
-        prazoEntrega,
         idUsuario,
         corVeiculo,
         modeloVeiculo,
+        valorTransporte,
+        valorColeta,
+        diasUteis,
       });
 
       await trx.commit();
@@ -100,6 +106,7 @@ export const create = {
 export const update = {
   validations: [
     check('cliente').isString(),
+    check('emailCliente').isString(),
     check('anoVeiculo').isString(),
     check('origemVeiculo').isString(),
     check('destinoVeiculo').isString(),
@@ -109,10 +116,9 @@ export const update = {
     check('obeservacao').isString(),
     check('orcamentoServico').isString(),
     check('obeservacao').isString(),
-    check('prazoEntrega').isString(),
-    check('idUsuario').isString(),
     check('corVeiculo').isString(),
     check('modeloVeiculo').isString(),
+    check('diasUteis').isString(),
   ],
   handler: async (req: Request, res: Response) => {
     // check schema validations
@@ -126,6 +132,7 @@ export const update = {
 
     const {
       cliente,
+      emailCliente,
       anoVeiculo,
       origemVeiculo,
       destinoVeiculo,
@@ -137,10 +144,12 @@ export const update = {
       orcamentoServico,
       coleta,
       entrega,
-      prazoEntrega,
       idUsuario,
       corVeiculo,
       modeloVeiculo,
+      valorTransporte,
+      valorColeta,
+      diasUteis,
     } = req.body;
 
     const trx = await db.transaction();
@@ -148,6 +157,7 @@ export const update = {
     try {
       const updateNcm = await trx('proposta').where('id', id).update({
         cliente,
+        emailCliente,
         anoVeiculo,
         origemVeiculo,
         destinoVeiculo,
@@ -159,10 +169,12 @@ export const update = {
         orcamentoServico,
         coleta,
         entrega,
-        prazoEntrega,
         idUsuario,
         corVeiculo,
         modeloVeiculo,
+        valorTransporte,
+        valorColeta,
+        diasUteis,
       });
 
       await trx.commit();

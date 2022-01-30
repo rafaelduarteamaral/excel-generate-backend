@@ -39,10 +39,14 @@ routes.put(
 
 routes.get('/propostas', PropostaController.index);
 routes.get('/propostas/:id', PropostaController.index);
-
 routes.post(
   '/propostas',
   PropostaController.create.validations,
   PropostaController.create.handler,
+);
+routes.put(
+  '/propostas/:id',
+  PropostaController.update.validations,
+  PropostaController.update.handler,
 );
 export default routes;

@@ -23,12 +23,7 @@ export async function up(knex: Knex) {
     table.string('modeloVeiculo').nullable();
     table.string('diasUteis').nullable();
     table.timestamp('timestamp').defaultTo(knex.fn.now());
-    table
-      .integer('idUsuario')
-      .unsigned()
-      .index()
-      .references('id')
-      .inTable('ususario');
+    table.string('idUsuario').nullable();
   });
 }
 

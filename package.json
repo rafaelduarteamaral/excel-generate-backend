@@ -7,7 +7,7 @@
   },
   "main": "index.js",
   "license": "MIT",
-  "env": "DEV",
+  "env": "HM",
   "scripts": {
     "build": "tsc",
     "start": "node ./dist/src/config/server.js",

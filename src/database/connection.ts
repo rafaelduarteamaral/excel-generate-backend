@@ -16,11 +16,11 @@ if (env == 'DEV') {
   obj = {
     client: 'pg',
     connection: {
-      user: 'imnvpdllguujrl',
-      database: 'dckktrldupvc37',
-      host: 'ec2-52-70-205-234.compute-1.amazonaws.com',
+      user: 'zzrawrehfpmpyw',
+      database: 'd3kj7fsheqt4mg',
+      host: 'ec2-184-73-243-101.compute-1.amazonaws.com',
       password:
-        'b88da2b563c0b5d1f43d8229aefa5abce306c4058c9e49809e10b189f82236a9',
+        '24647d38df25543add017d092a62f67273860d5c6ede9a3066f0c41957426acd',
       port: 5432,
       ssl: { rejectUnauthorized: false },
     },

@@ -22,11 +22,11 @@ if (env == 'DEV') {
     development: {
       client: 'pg',
       connection: {
-        user: 'ejmixqqfoccofq',
-        database: 'dbrojf03ehiujg',
-        host: 'ec2-54-208-139-247.compute-1.amazonaws.com',
+        user: 'zzrawrehfpmpyw',
+        database: 'd3kj7fsheqt4mg',
+        host: 'ec2-184-73-243-101.compute-1.amazonaws.com',
         password:
-          'bc6cad20d88f8faa08a9539ae1d5d8914c9468125da52d6c0a2246e6ab733465',
+          '24647d38df25543add017d092a62f67273860d5c6ede9a3066f0c41957426acd',
         port: 5432,
         ssl: { rejectUnauthorized: false },
       },

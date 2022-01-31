@@ -6,16 +6,19 @@ import db from '../database/connection';
 export const index = async (req: Request, res: Response) => {
   let proposta = [];
 
-  if (req.params.id) {
-    proposta = await db('proposta').select('*').where({ id: req.params.id });
-  } else {
-    proposta = await db('proposta')
-      .select('proposta.*', 'usuarios.nome as nomeUsuario')
-      .leftOuterJoin('usuarios', 'proposta.idUsuario', 'usuarios.id')
-      .where(req.query);
+  try {
+    if (req.params.id) {
+      proposta = await db('propostas').select('*').where({ id: req.params.id });
+    } else {
+      proposta = await db('propostas')
+        .select('proposta.*', 'usuarios.nome as nomeUsuario')
+        .leftOuterJoin('usuarios', 'proposta.idUsuario', 'usuarios.id')
+        .where(req.query);
+    }
+    return res.status(200).json(proposta);
+  } catch (error) {
+    return res.status(200).json({ mensagem: 'erro ao buscar propostas' });
   }
-
-  return res.status(200).json(proposta);
 };
 
 export const create = {
